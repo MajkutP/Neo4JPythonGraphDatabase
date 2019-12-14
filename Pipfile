@@ -1,0 +1,15 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+pylint = "*"
+
+[packages]
+flask = "*"
+neo4j-driver = "*"
+gunicorn = "*"
+
+[requires]
+python_version = "3.8"
