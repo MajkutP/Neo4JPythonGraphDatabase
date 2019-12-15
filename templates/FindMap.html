@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Find Aircraft By Map</title>
+  </head>
+  <body>
+    <div class="container">
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+      <form action="/findMapsbyAircraft" method="POST">
+        <div class="form-group">
+          <h3>Your Aircraft</h3>
+          <select name="Air">
+            {% for item in data %}        
+              <option value={{item["name"]}}>{{item["name"]}}</option> 
+            {% endfor %}
+          </select>
+        </div>
+          <input type="submit" value="Search" class="btn" />
+        </form>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+CREATE (Yak9P:Aircraft{name:"Yak9P", country: "USRR", BattleRating: "5.0"}),
+(Bf109F4:Aircraft{name:"BF109F4", country: "Germany", BattleRating: "4.3"}),
+(SpitfireFMkIX:Aircraft{name:"SpitfireFMkIX", country: "Germany", BattleRating: "4.0"}),
+(Yak9P)-[:meets{performance:3}]->(Bf109F4),
+(Bf109F4)-[:meets{performance:7}]->(Yak9P),
+(SpitfireFMkIX)-[:meets{performance:5}]->(Bf109F4),
+(Bf109F4)-[:meets{performance:5}]->(SpitfireFMkIX)
+
+CREATE (Kursk:Map{name:"Kursk", year:"1943"}),
+(Ruhra:Map{name:"Ruhra", year:"1945"}),
+(Yak9P)-[:used{role:['Fighter']}]->(Kursk),
+(Bf109F4)-[:used{role:['Fighter']}]->(Kursk),
+(Bf109F4)-[:used{role:['Fighter']}]->(Ruhra),
+(SpitfireFMkIX)-[:used{role:['Fighter']}]->(Ruhra)

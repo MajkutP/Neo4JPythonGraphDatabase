@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Collected Data</title>
+  </head>
+  <body>
+    <div class="container">
+      <form action="/AircraftMapInfo" method="POST">
+        <div class="form-group">
+          <h3>Your Aircraft</h3>
+          <select name="Air">
+            {% for item in data %}        
+              <option value={{item["name"]}}>{{item["name"]}}</option> 
+            {% endfor %}
+          </select>
+        </div>
+        <div class="form-group">
+          <h3>Enemy Aircraft</h3>
+          <select name="Map">
+            {% for item2 in data2 %}        
+              <option value={{item2["name"]}}>{{item2["name"]}}</option> 
+            {% endfor %}
+          </select>
+        </div>
+        <input type="submit" value="Enable plane usage on selected map" class="btn" />
+      </form>
+    </div>
+  </body>
+</html>
+
+

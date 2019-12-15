@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <link rel="stylesheet" href="../static/style.css" />
+    <title>Rating</title>
+  </head>
+  <body>
+    <div class="container">
+        {% if message %}
+        <p class="message">{{ message | safe }}</p>
+        {% endif %}
+      <form action="/submitRating" method="POST">
+        <div class="form-group">
+            <h3>Your Aircraft</h3>
+            <select name="Air1">
+              {% for item in data %}        
+                <option value={{item["name"]}}>{{item["name"]}}</option> 
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <h3>Enemy Aircraft</h3>
+            <select name="Air2">
+              {% for item2 in data2 %}        
+                <option value={{item2["name"]}}>{{item2["name"]}}</option> 
+              {% endfor %}
+            </select>
+          </div>
+          <div class="form-group">
+            <h3>Rate Aircraft Performance against choosen opponent</h3>
+            <input type="radio" name="rating" value="1" /> 1
+            <input type="radio" name="rating" value="2" /> 2
+            <input type="radio" name="rating" value="3" /> 3
+            <input type="radio" name="rating" value="4" /> 4
+            <input type="radio" name="rating" value="5" /> 5
+            <input type="radio" name="rating" value="6" /> 6
+            <input type="radio" name="rating" value="7" /> 7
+            <input type="radio" name="rating" value="8" /> 8
+            <input type="radio" name="rating" value="9" /> 9
+            <input type="radio" name="rating" value="10" checked /> 10
+          </div>
+          <input type="submit" value="Submit rating" class="btn" />
+        </form>
+  </body>
+</html>
